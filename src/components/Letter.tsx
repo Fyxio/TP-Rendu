@@ -1,7 +1,10 @@
-export default function Letter(){
+export type LetterState = { display: string; state: 'Display' | 'Hidden'; id: number }
+
+export default function Letter({letter}: {letter: LetterState}){
+
     return (
         <div className="Letter">
-            <p>Ceci est ma composante "Letter"</p>
+            <p>{letter.display}</p>
         </div>
     )
 }
