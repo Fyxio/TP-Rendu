@@ -74,6 +74,118 @@
   border-color: #bbb;
 }
 
+.ReplayButton {
+  margin-top: 16px;
+  padding: 10px 18px;
+  border-radius: 12px;
+  border: 1px solid #ddd;
+  background: #f7f7f7;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.ReplayButton:hover {
+  background: #ececec;
+}
+
+.Hangman {
+  position: relative;
+  width: 240px;
+  height: 280px;
+  margin: 20px auto;
+}
+
+/* --- Potence --- */
+.Gallows {
+  position: absolute;
+  left: 20px;
+  top: 10px;
+}
+
+.PoleVertical {
+  width: 6px;
+  height: 240px;
+  background: #222;
+}
+
+.PoleHorizontal {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 120px;
+  height: 6px;
+  background: #222;
+}
+
+.Rope {
+  position: absolute;
+  top: 6px;
+  left: 110px;
+  width: 4px;
+  height: 28px;
+  background: #222;
+}
+
+/* --- Tête --- */
+.Head {
+  position: absolute;
+  top: 40px;
+  left: 110px;
+  width: 40px;
+  height: 40px;
+  border: 4px solid #222;
+  border-radius: 50%;
+}
+
+/* --- Corps --- */
+.Body {
+  position: absolute;
+  top: 80px;
+  left: 128px;
+  width: 4px;
+  height: 70px;
+  background: #222;
+}
+
+/* --- Bras --- */
+.Arm {
+  position: absolute;
+  top: 95px;
+  width: 40px;
+  height: 4px;
+  background: #222;
+}
+
+.LeftArm {
+  left: 88px;
+  transform: rotate(-30deg);
+}
+
+.RightArm {
+  left: 132px;
+  transform: rotate(30deg);
+}
+
+/* --- Jambes --- */
+.Leg {
+  position: absolute;
+  top: 150px;
+  width: 40px;
+  height: 4px;
+  background: #222;
+}
+
+.LeftLeg {
+  left: 90px;
+  transform: rotate(130deg);
+}
+
+.RightLeg {
+  left: 130px;
+  transform: rotate(-130deg);
+}
+
+
 
 
 /* Responsive */
