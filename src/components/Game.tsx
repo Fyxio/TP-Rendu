@@ -1,24 +1,41 @@
 import HangmanDisplay from "./HangmanDisplay";
 import WordDisplay from "./WordDisplay";
-import Keyboard from "./Keyboard";  
+import Keyboard from "./Keyboard";
 import { useEffect, useState } from "react";
+import { LetterState } from "./Letter";
 
-export default function Game(){
+export default function Game() {
+  const [word, setWord] = useState<string>("");
+  const [letters, setLetters] = useState<LetterState[]>([]);
 
-    const [word, setWord] = useState<string>('');
-        useEffect(() => {
-            // Récupérer les mots depuis le json
-            // et instancier la constante words avec ces mots
-            const words = ['pomme', 'fraise'];
-            const random = words[Math.floor(Math.random() * words.length)]
-            setWord(random)
-        },[])
+  useEffect(() => {
+    const words = ["pomme", "fraise"];
+    const random = words[Math.floor(Math.random() * words.length)];
+    setWord(random);
 
-    return (
-        <div className="Game">
-            <WordDisplay word={word}/>
-            {/* <Keyboard/> */}
-            {/* <HangmanDisplay/> */}
-        </div>
-    )
+    // Initialisation : toutes les lettres cachées
+    const initialLetters: LetterState[] = random.split("").map((l, index) => ({
+      display: l,
+      state: "Hidden",
+      id: index,
+    }));
+
+    setLetters(initialLetters);
+  }, []);
+
+  // Quand on clique sur une lettre du clavier
+  function handleGuess(letter: string) {
+    setLetters((prev) =>
+      prev.map((l) =>
+        l.display === letter ? { ...l, state: "Display" } : l
+      )
+    );
+  }
+
+  return (
+    <div className="Game">
+      <WordDisplay letters={letters} />
+      {/* <HangmanDisplay /> */}
+    </div>
+  );
 }
