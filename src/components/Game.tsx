@@ -34,7 +34,8 @@ export default function Game() {
 
   return (
     <div className="Game">
-      <WordDisplay letters={letters} />
+      <WordDisplay letters={letters}/>
+      <Keyboard onGuess={(handleGuess) => console.log("click", handleGuess)}/>
       {/* <HangmanDisplay /> */}
     </div>
   );
